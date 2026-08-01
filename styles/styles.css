@@ -1,3 +1,26 @@
+@font-face {
+    font-family: "Outfit";
+    src: 
+        local("Outfit"),
+        url("../assets/fonts/Outfit-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Outfit";
+    src: 
+        local("Outfit Bold"),
+        url("../assets/fonts/Outfit-Bold.ttf");
+        font-weight: bold;
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    src: 
+        local("FiraSans"),
+        url("../assets/fonts/FiraSans-Regular.ttf");
+}
+
+
 @layer reset {
   *,
   *::before,
@@ -90,6 +113,10 @@
         --clr-orange-500: hsl(28, 43%, 28%);
         --clr-red-500: hsl(359, 34%, 24%);
         --clr-teal-500: hsl(186, 42%, 25%);
+
+        --ff-body: "Fira Sans", sans-serif;
+        --ff-heading: "Outfit", sans-serif;
       }
+
 
 }
