@@ -188,6 +188,14 @@
   a:focus-visible {
     color: var(--text-brand);
   }
+
+  img {
+    border-radius: var(--border-radius-2);
+
+    @media (width > 760px) {
+      border-radius: var(--border-radius-3);
+    }
+  }
 }
 
 @layer layout {
