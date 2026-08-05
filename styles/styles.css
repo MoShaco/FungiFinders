@@ -260,6 +260,31 @@
     }
   }
 
+  .site-footer {
+    background-color: var(--background-dark);
+    padding-block: 2rem;
+    text-align: center;
+
+    display: grid;
+    gap: 2rem;
+
+    a {
+      text-decoration: none;
+      color: var(--text-main);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--text-brand-light);
+      }
+    }
+  }
+
+  .site-footer__title {
+    font-size: var(--font-size-md);
+    font-family: var(--ff-heading);
+    font-weight: 700;
+  }
+
   .equal-columns {
     display: grid;
     gap: var(--equal-columns-gap, 1rem);
