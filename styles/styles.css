@@ -202,14 +202,7 @@
   .flow > * + * {
     margin-block-start: 1em;
   }
-
-  .grid-flow {
-    display: grid;
-    gap: var(--grid-flow-space, 1rem);
-    align-content: start;
-    justify-items: start;
-  }
-
+  
   .section {
     --padding: 3.75rem;
     padding-block: var(--padding);
@@ -283,6 +276,43 @@
     &[data-vertical-alignment="centered"] {
       --equal-columns-vertical-alignment: center;
     }
+  }
+
+  .hero {
+    text-align: center;
+    color: var(--text-high-contrast);
+    font-size: var(--font-size-md);
+    background-image: url("../assets/images/hero.webp");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-heading-lg);
+
+    span {
+      color: var(--text-brand);
+      font-size: var(--font-size-heading-xl);
+      display: block;
+    }
+  }
+
+  .card {
+    display: grid;
+    gap: var(--card-gap, 1rem);
+    align-content: start;
+    justify-items: start;
+    padding: 1rem;
+    border-radius: var(--border-radius-3);
+    background-color: var(--background-light);
+
+    img {
+      border-radius: var(--border-radius-2);
+    }
+  }
+  .card__title {
+    color: var(--card-title-color, var(--text-brand));
+    font-size: var(--card-title-font-size, var(--font-size-heading-sm));
   }
 }
 
