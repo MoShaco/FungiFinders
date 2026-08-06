@@ -246,6 +246,18 @@
     gap: 0.5rem 2rem;
     flex-wrap: wrap;
   }
+
+  [aria-controls="primary-nav"]{
+    z-index: 100;
+    background-color: transparent;
+    border: 0;
+
+    img {
+      border-radius: 0;
+      cursor: pointer;
+    }
+  }
+
   .primary-navigation {
     ul {
       display: flex;
@@ -257,6 +269,29 @@
     }
     a {
       text-decoration: none;
+    }
+
+    @media (width < 760px) {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      background-color: var(--background-accent-main);
+      padding: 2rem;
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      border-radius: 0 0 0 var(--border-radius-2);
+
+      ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      li + li {
+        margin-block-start: 2rem;
+        padding-block-start: 2rem;
+        border-block-start: 2px solid var(--background-accent-light);
+      }
     }
   }
 
