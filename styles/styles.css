@@ -236,6 +236,29 @@
 }
 
 @layer components {
+
+  .skip-to-main:not(:focus) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .skip-to-main {
+    text-decoration: none;
+    font-size: var(--font-size-lg);
+    color: var(--text-high-contrast);
+    background-color: var(--background-accent-main);
+    padding: 1rem;
+    border-radius: var(--border-radius-2);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
   .site-header {
     padding-block: 1rem;
   }
