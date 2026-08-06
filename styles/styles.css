@@ -247,6 +247,10 @@
     flex-wrap: wrap;
   }
 
+  [aria-controls="primary-nav"] {
+    display: none;
+  }
+
   [aria-controls="primary-nav"]{
     z-index: 100;
     background-color: transparent;
@@ -272,6 +276,7 @@
     }
 
     @media (width < 760px) {
+      display: none;
       position: absolute;
       z-index: 10;
       top: 0;
@@ -292,6 +297,16 @@
         padding-block-start: 2rem;
         border-block-start: 2px solid var(--background-accent-light);
       }
+    }
+  }
+
+  @media (width < 760px) {
+    [aria-controls="primary-nav"] {
+      display: block;
+    }
+
+    [aria-expanded="true"] ~ .primary-navigation {
+      display: block;
     }
   }
 
