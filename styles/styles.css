@@ -203,6 +203,12 @@
     margin-block-start: 1em;
   }
 
+  .flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   .section {
     --padding: 3.75rem;
     padding-block: var(--padding);
@@ -411,8 +417,8 @@
   }
 
   .card {
-    display: grid;
-    /* flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     gap: var(--card-gap, 1rem);
     align-content: start;
     justify-items: start;
@@ -430,7 +436,7 @@
   }
 
   .card__note {
-    /* margin-block-start: auto; */
+    margin-block-start: auto;
     background-color: var(--background-extra-light);
     font-size: var(--font-size-sm);
     border-radius: var(--border-radius-1);
@@ -483,6 +489,14 @@
   .button:focus-visible {
     color: var(--text-high-contrast);
     background-color: var(--background-accent-light);
+  }
+
+  select {
+    background-color: var(--background-accent-main);
+    padding: 0.5rem 1rem;
+    color: var(--text-high-contrast);
+    border: 0;
+    border-radius: var(--border-radius-2);
   }
 }
 
