@@ -29,7 +29,7 @@
     scroll-padding: 2rem;
   }
 
-  @media(prefers-reduced-motion: no-preference){
+  @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
     }
@@ -247,13 +247,13 @@
     }
   }
 
-  .grid-auto-fit {
-    --auto-fit-min-col-size: 250px;
+  .grid-auto-fill {
+    --auto-fill-min-col-size: 250px;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(var(--auto-fit-min-col-size), 100%), 1fr)
+      auto-fill,
+      minmax(min(var(--auto-fill-min-col-size), 100%), 1fr)
     );
   }
 
@@ -422,7 +422,6 @@
     --card-title-font-size: var(--font-size-lg);
     --card-gap: 0.75rem;
   }
-  
 
   .faq_bento {
     --card-title-color: var(--text-high-contrast);
@@ -432,36 +431,32 @@
       "card-one"
       "card-two"
       "card-three"
-      "card-four"
-    ;
+      "card-four";
 
     .card > img {
       height: 100%;
       object-fit: cover;
     }
 
-    @media(width > 600px){
-      grid-template-areas: 
+    @media (width > 600px) {
+      grid-template-areas:
         "card-one card-two"
-        "card-three card-four"
-      ;
+        "card-three card-four";
 
-      .card:nth-child(even) > img{
+      .card:nth-child(even) > img {
         order: 3;
       }
     }
 
-    @media(width > 900px){
+    @media (width > 900px) {
       grid-template-areas:
         "card-one card-two card-four"
-        "card-three card-three card-four"
-      ;
-      
+        "card-three card-three card-four";
+
       .card:nth-child(4) > img {
         order: 0;
       }
     }
-
 
     .card:nth-child(1) {
       grid-area: card-one;
@@ -471,7 +466,7 @@
     }
     .card:nth-child(3) {
       grid-area: card-three;
-       
+
       @media (width > 900px) {
         display: grid;
         column-gap: 1rem;
@@ -494,7 +489,6 @@
       grid-area: card-four;
     }
   }
-
 
   .card {
     display: flex;
@@ -553,6 +547,13 @@
     }
   }
 
+  .no-match {
+    font-size: var(--font-size-lg);
+    font-family: var(--ff-heading);
+    font-weight: 700;
+    color: var(--text-high-contrast);
+  }
+
   .button {
     display: inline-flex;
     cursor: pointer;
@@ -581,6 +582,9 @@
 }
 
 @layer utilities {
+  [hidden] {
+    display: none;
+  }
   .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
