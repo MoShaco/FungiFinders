@@ -1,3 +1,7 @@
+@view-transition {
+  navigation: auto;
+}
+
 @font-face {
   font-family: "Outfit";
   src: local("Outfit"), url("../assets/fonts/Outfit-Regular.ttf");

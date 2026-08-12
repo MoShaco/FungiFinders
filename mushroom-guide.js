@@ -12,14 +12,26 @@ const currentFilter = {
   edible: "all",
 };
 
+addCaardViewTransitionNames();
+
+enableFiltering();
+
 function updateFilter(event) {
   const filterType = event.target.name;
   currentFilter[filterType] = event.target.value;
-  filterCards();
+
+  if (!document.startViewTransition) {
+    filterCards();
+    return;
+  }
+
+  document.startViewTransition(() => {
+    filterCards();
+  });
 }
 
 function filterCards() {
-    let availabeFilterCards = false;
+  let availableFilterCards = false;
   cards.forEach((card) => {
     const season = card.querySelector("[data-season]").dataset.season;
     const edible = card.querySelector("[data-edible]").dataset.edible;
@@ -32,23 +44,27 @@ function filterCards() {
       (matchesEdible || currentFilter.edible === "all")
     ) {
       card.hidden = false;
-      availabeFilterCards = true;
+      availableFilterCards = true;
     } else {
       card.hidden = true;
     }
 
-    if (availabeFilterCards) {
-        noMatchResults.hidden = true;
+    if (availableFilterCards) {
+      noMatchResults.hidden = true;
     } else {
-        noMatchResults.hidden = false;
+      noMatchResults.hidden = false;
     }
   });
 }
-
 
 function enableFiltering() {
   seasonFilter.hidden = false;
   edibleFilter.hidden = false;
 }
 
-enableFiltering();
+function addCaardViewTransitionNames() {
+  cards.forEach((card, index) => {
+    mushroomId = `mushroom-${index + 1}`
+    card.style.viewTransitionName = `card-${mushroomId}`;
+  });
+}
