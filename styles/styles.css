@@ -1,3 +1,7 @@
+@view-transition {
+  navigation: auto;
+}
+
 @font-face {
   font-family: "Outfit";
   src: local("Outfit"), url("../assets/fonts/Outfit-Regular.ttf");
@@ -301,6 +305,8 @@
 
   .site-header {
     padding-block: 1rem;
+    overflow-x: clip;
+    position: relative;
   }
 
   .site-header__inner {
@@ -341,6 +347,10 @@
     @media (width < 760px) {
       display: none;
       position: absolute;
+      opacity: 0;
+      transition: opacity 1s, display 1s, translate 1s;
+      translate: 100% 0;
+      transition-behavior: allow-discrete;
       z-index: 10;
       top: 0;
       right: 0;
@@ -353,6 +363,20 @@
       ul {
         flex-direction: column;
         gap: 0;
+      }
+
+      li {
+        opacity: 0;
+        translate: 100%;
+        transition: opacity 300ms, translate 875ms;
+        transition-delay: var(--delay, 125ms);
+
+        &:nth-child(2) {
+          --delay: 250ms;
+        }
+        &:nth-child(3) {
+          --delay: 325ms;
+        }
       }
 
       li + li {
@@ -370,6 +394,22 @@
 
     [aria-expanded="true"] ~ .primary-navigation {
       display: block;
+      opacity: 1;
+      translate: 0 0;
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 -100%
+      }
+
+      li {
+        opacity: 1;
+        translate: 0;
+        @starting-style {
+          opacity: 0;
+          translate: 100%;
+        }
+      }
     }
   }
 
@@ -585,6 +625,12 @@
   [hidden] {
     display: none;
   }
+
+  .resizing * {
+    transition: none;
+    animation: none;
+  }
+
   .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
